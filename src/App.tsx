@@ -6,9 +6,12 @@ import { Link, Outlet } from "react-router-dom";
 function App() {
   return (
     <div className="App">
-      <ul>
+      <ul className="list-decimal underline m-10">
         <li>
-          <Link to="/poker">Poker Probability Calculator Here</Link>
+          <Link to="/poker">Poker Probability Calculator</Link>
+          <li>
+            <Link to="/airtable">Airtable Embed</Link>
+          </li>
         </li>
       </ul>
     </div>

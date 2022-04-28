@@ -72,9 +72,16 @@ export const hasFourOfAKind = (cards: Card[]) => {
   return duplicates.length == 4 && duplicates.every((r) => r == duplicates[0]);
 };
 
-export const hasFlush = (cards: Card[]) => {
+export const hasFullHouse = (cards: Card[]) => {
   const duplicates = getDuplicates(cards);
   return duplicates.length == 5;
+};
+
+export const hasFlush = (cards: Card[]) => {
+  return (
+    cards.map((card) => card.suit).filter((suit) => suit === cards[0].suit)
+      .length == 5
+  );
 };
 
 export const hasStraight = (cards: Card[]) => {

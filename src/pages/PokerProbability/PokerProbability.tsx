@@ -5,7 +5,7 @@ import { PlayingCard } from "./PlayingCard";
 import {
   Card,
   deck,
-  hasFlush,
+  hasFullHouse,
   hasFourOfAKind,
   hasHighCard,
   hasPair,
@@ -13,6 +13,7 @@ import {
   hasThreeOfAKind,
   hasTwoPairs,
   printCard,
+  hasFlush,
 } from "./utils";
 
 function PokerProbability() {
@@ -63,6 +64,9 @@ function PokerProbability() {
         </div>
         <div>
           Straight : <Status isTrue={hasStraight(selectedCards)} />{" "}
+        </div>
+        <div>
+          Full House : <Status isTrue={hasFullHouse(selectedCards)} />{" "}
         </div>
         <div>
           Flush : <Status isTrue={hasFlush(selectedCards)} />{" "}

@@ -4,7 +4,8 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import PokerProbability from "./pages/PokerProbability/PokerProbability";
+import PokerProbability from "./pages/pokerProbability/PokerProbability";
+import AirtableEmbed from "./pages/airtable/AirtableEmbed";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -15,6 +16,7 @@ root.render(
       <Routes>
         <Route path="/" element={<App />}></Route>
         <Route path="poker" element={<PokerProbability />} />
+        <Route path="airtable" element={<AirtableEmbed />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
