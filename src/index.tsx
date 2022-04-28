@@ -4,8 +4,8 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import PokerProbability from "./pages/PokerProbability/PokerProbability";
-import AirtableEmbed from "./pages/Airtable/AirtableEmbed";
+import PokerProbability from "./pages/poker-probability/PokerProbability";
+import AirtableEmbed from "./pages/airtable-embed/AirtableEmbed";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
