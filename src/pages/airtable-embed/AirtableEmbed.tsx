@@ -1,5 +1,4 @@
 import React from "react";
-import ReactLoading from "react-loading";
 
 export default function AirtableEmbed() {
   const [loading, setLoading] = React.useState(true);
