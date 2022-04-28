@@ -79,28 +79,19 @@ export const hasFlush = (cards: Card[]) => {
 
 export const hasStraight = (cards: Card[]) => {
   if (cards.length != 5) return false;
-  const sortedRankIndices = _(cards)
-    .map((card) => ranks.indexOf(card.rank))
-    .sort()
-    .value();
+  const rankIndices = cards.map((card) => ranks.indexOf(card.rank));
 
-  //   console.log(sortedRankIndices);
+  const aceIndex = rankIndices.indexOf(0);
+  if (aceIndex != -1 && rankIndices.includes(12)) {
+    rankIndices[aceIndex] = 13;
+  }
 
-  //   console.log(
-  //     _(sortedRankIndices)
-  //       .tail()
-  //       .every((rankIndex, i) => {
-  //         console.log(rankIndex, i, sortedRankIndices[i]);
-  //         return rankIndex - 1 === sortedRankIndices[i];
-  //       })
-  //   );
+  const sortedRankIndices = rankIndices.sort((a, b) => a - b);
 
-  // TODO: can do better
   return _(sortedRankIndices)
     .tail()
     .every((rankIndex, i) => {
-      console.log(rankIndex, i, sortedRankIndices[i]);
-      return rankIndex - 1 === sortedRankIndices[i];
+      return rankIndex - 1 === rankIndices[i];
     });
 };
 
