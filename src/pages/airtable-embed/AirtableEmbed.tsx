@@ -7,7 +7,7 @@ export default function AirtableEmbed() {
       {loading ? "Loading..." : null}
       <iframe
         className="airtable-embed"
-        src="https://airtable.com/embed/shr1o6DeOQJRS1NXW?backgroundColor=green&layout=card&viewControls=on"
+        src="https://airtable.com/embed/shr1o6DeOQJRS1NXW?backgroundColor=green&viewControls=on"
         frameBorder="0"
         width="100%"
         height="800"
