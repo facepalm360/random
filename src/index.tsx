@@ -6,6 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import PokerProbability from "./pages/poker-probability/PokerProbability";
 import AirtableEmbed from "./pages/airtable-embed/AirtableEmbed";
+import FirebaseChat from "./pages/firebase-chat/FirebaseChat";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -17,6 +18,7 @@ root.render(
         <Route path="/" element={<App />}></Route>
         <Route path="poker" element={<PokerProbability />} />
         <Route path="airtable" element={<AirtableEmbed />} />
+        <Route path="firebase-chat" element={<FirebaseChat />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

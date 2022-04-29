@@ -46,50 +46,54 @@ export const printCard = (card: Card) =>
   card.rank + " " + suitNames[card.suit as Suit];
 
 export const hasHighCard = (cards: Card[]) => {
-  if (cards.length == 0) return false;
+  if (cards.length === 0) return false;
 
   const duplicates = getDuplicates(cards);
-  return duplicates.length == 0 && !hasStraight(cards);
+  return duplicates.length === 0 && !hasStraight(cards);
 };
 
 export const hasPair = (cards: Card[]) => {
   const duplicates = getDuplicates(cards);
-  return duplicates.length == 2;
+  return duplicates.length === 2;
 };
 
 export const hasTwoPairs = (cards: Card[]) => {
   const duplicates = getDuplicates(cards);
-  return duplicates.length == 4 && !duplicates.every((r) => r == duplicates[0]);
+  return (
+    duplicates.length === 4 && !duplicates.every((r) => r === duplicates[0])
+  );
 };
 
 export const hasThreeOfAKind = (cards: Card[]) => {
   const duplicates = getDuplicates(cards);
-  return duplicates.length == 3;
+  return duplicates.length === 3;
 };
 
 export const hasFourOfAKind = (cards: Card[]) => {
   const duplicates = getDuplicates(cards);
-  return duplicates.length == 4 && duplicates.every((r) => r == duplicates[0]);
+  return (
+    duplicates.length === 4 && duplicates.every((r) => r === duplicates[0])
+  );
 };
 
 export const hasFullHouse = (cards: Card[]) => {
   const duplicates = getDuplicates(cards);
-  return duplicates.length == 5;
+  return duplicates.length === 5;
 };
 
 export const hasFlush = (cards: Card[]) => {
   return (
     cards.map((card) => card.suit).filter((suit) => suit === cards[0].suit)
-      .length == 5
+      .length === 5
   );
 };
 
 export const hasStraight = (cards: Card[]) => {
-  if (cards.length != 5) return false;
+  if (cards.length !== 5) return false;
   const rankIndices = cards.map((card) => ranks.indexOf(card.rank));
 
   const aceIndex = rankIndices.indexOf(0);
-  if (aceIndex != -1 && rankIndices.includes(12)) {
+  if (aceIndex !== -1 && rankIndices.includes(12)) {
     rankIndices[aceIndex] = 13;
   }
 

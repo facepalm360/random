@@ -19,7 +19,7 @@ export function PlayingCard({ card, isSelected, onSelect }: props) {
       })}
       onClick={() => onSelect(card)}
     >
-      <img src={src} style={{ height: "200px" }}></img>
+      <img src={src} style={{ height: "200px" }} alt=""></img>
     </div>
   );
 }

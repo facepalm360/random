@@ -1,5 +1,4 @@
 import clsx from "clsx";
-import { createReadStream } from "fs";
 import React from "react";
 import { PlayingCard } from "./PlayingCard";
 import {
@@ -33,7 +32,7 @@ function PokerProbability() {
     const index = selectedCards.findIndex(
       (c) => c.rank === card.rank && c.suit === card.suit
     );
-    if (index != -1) {
+    if (index !== -1) {
       setSelectedCards([
         ...selectedCards.slice(0, index),
         ...selectedCards.slice(index + 1),
