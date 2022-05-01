@@ -1,30 +1,60 @@
-import { Database, DatabaseReference, get, push, ref } from "firebase/database";
+import {
+  Database,
+  DatabaseReference,
+  get,
+  onValue,
+  push,
+  ref,
+  serverTimestamp,
+} from "firebase/database";
 import _ from "lodash";
+import { makeAutoObservable } from "mobx";
+import { realtimeDb } from "../../fb";
 
+export interface realtimeDBMessage {
+  text: string;
+  key: string;
+  timestamp: number;
+}
 export interface IChatStore {
+  messages: realtimeDBMessage[];
   send(message: string): void;
-  getMessages(): Promise<string[]>;
 }
 
 export class ChatStore implements IChatStore {
-  //   private messages: string[] = [];
-  private db: Database;
+  messages: realtimeDBMessage[] = [];
   private ref: DatabaseReference;
 
   constructor(db: Database) {
-    this.db = db;
+    makeAutoObservable(this);
     this.ref = ref(db, "/messages");
-  }
 
-  public send(message: string) {
-    push(this.ref, {
-      message,
-      //   timestamp: this.db.app.options.tim,
+    onValue(this.ref, (snapshot) => {
+      const data = snapshot.val();
+      this.loadMessages(snapshot.val());
     });
   }
 
-  public async getMessages(): Promise<string[]> {
+  public send(text: string) {
+    push(this.ref, {
+      text,
+      timestamp: serverTimestamp(),
+    });
+  }
+
+  public async fetchMessages() {
     const snapshot = await get(this.ref);
-    return _.values(snapshot.val()).map((it) => it.message);
+    this.loadMessages(snapshot.val());
+  }
+
+  public async loadMessages(data: any) {
+    console.log(data);
+    this.messages = _.values(data).map((message, key) => ({ ...message, key }));
+  }
+
+  public get messagesReversed() {
+    return this.messages.slice().reverse();
   }
 }
+
+export const chatStore = new ChatStore(realtimeDb);
