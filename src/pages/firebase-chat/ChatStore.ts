@@ -48,7 +48,6 @@ export class ChatStore implements IChatStore {
   }
 
   public async loadMessages(data: any) {
-    console.log(data);
     this.messages = _.values(data).map((message, key) => ({ ...message, key }));
   }
 
@@ -56,5 +55,3 @@ export class ChatStore implements IChatStore {
     return this.messages.slice().reverse();
   }
 }
-
-export const chatStore = new ChatStore(realtimeDb);

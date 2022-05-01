@@ -1,15 +1,16 @@
 import React, { useEffect } from "react";
-import { chatStore, realtimeDBMessage } from "./ChatStore";
+import { ChatStore, realtimeDBMessage } from "./ChatStore";
 import { observer } from "mobx-react";
 import format from "date-fns/format";
+import { realtimeDb } from "../../fb";
 
 const FirebaseChat = observer(() => {
   const [inputText, setInputText] = React.useState("");
 
-  async function loadMessages() {}
+  const [chatStore] = React.useState(new ChatStore(realtimeDb));
 
   useEffect(() => {
-    loadMessages();
+    console.log("rendering FirebaseChat");
   }, []);
 
   function handleKeyDown(event: React.KeyboardEvent<HTMLDivElement>) {
