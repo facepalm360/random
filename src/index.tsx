@@ -15,10 +15,11 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App />}></Route>
-        <Route path="poker" element={<PokerProbability />} />
-        <Route path="airtable" element={<AirtableEmbed />} />
-        <Route path="firebase-chat" element={<FirebaseChat />} />
+        <Route path="/" element={<App />}>
+          <Route path="poker" element={<PokerProbability />} />
+          <Route path="airtable" element={<AirtableEmbed />} />
+          <Route path="firebase-chat" element={<FirebaseChat />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
