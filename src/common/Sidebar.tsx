@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 
 function Sidebar() {
   function handleActive({ isActive }: { isActive: boolean }) {
-    return isActive ? "text-red-600  " : "";
+    return isActive ? "underline text-red-600  " : "";
   }
 
   return (
     <div>
-      <ul className="list underline m-10 space-y-2">
+      <ul className="list m-2 space-y-2">
         <li>
           <NavLink to="/">🏠</NavLink>
         </li>

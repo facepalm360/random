@@ -11,7 +11,7 @@ function App() {
           <Sidebar></Sidebar>
         </div>
 
-        <div className="flex-1">
+        <div className="flex-1 ml-4">
           <Outlet />
         </div>
       </div>
