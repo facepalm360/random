@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import PokerProbability from "./pages/poker-probability/PokerProbability";
 import AirtableEmbed from "./pages/airtable-embed/AirtableEmbed";
 import FirebaseChat from "./pages/firebase-chat/FirebaseChat";
+import { Paint } from "./pages/paint/Paint";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -19,6 +20,7 @@ root.render(
           <Route path="poker" element={<PokerProbability />} />
           <Route path="airtable" element={<AirtableEmbed />} />
           <Route path="firebase-chat" element={<FirebaseChat />} />
+          <Route path="paint" element={<Paint />} />
         </Route>
       </Routes>
     </BrowserRouter>

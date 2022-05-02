@@ -28,6 +28,11 @@ function Sidebar() {
             Firebase Chat
           </NavLink>
         </li>
+        <li>
+          <NavLink to="/paint" className={handleActive}>
+            Paint
+          </NavLink>
+        </li>
       </ul>
     </div>
   );
